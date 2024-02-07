@@ -1,0 +1,559 @@
+
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Nosey little bean aren't you. xP If you want to use this as a template, just credit thestuffwebuild.com like this.-->
+		<style>
+			/****************** BACKGROUND BIT ******************/
+			body, html {
+				height: 100%;
+				margin: 0;
+				font: 1em arial, sans-serif;
+				color: #777;
+				background-color: #1e1e1e;
+                background-position: 80%;
+			}
+			
+			/****************** LOGGER BIT ******************/
+			.logger {
+				position: absolute;
+				left: 0;
+				top: 1em;
+				text-align: left;
+				color: #fff;
+				padding-left: 1em;
+				line-height: 1;
+				font: 1.2em monospace;
+			}
+			
+			/****************** MAIN WORDS BIT ******************/
+			.caption {
+				position: absolute;
+				left: 0;
+				top: 40%;
+				width: 100%;
+				text-align: center;
+				color: #111;
+			}
+			.caption span.border {
+				color: #fff;
+				padding: 1em;
+				font-size: 2.5em;
+				line-height: 1.5;
+				letter-spacing: 0.1em;
+			}
+			
+			/****************** FOOTER BIT ******************/
+			.foot {
+				position: absolute;
+				left: 0;
+				bottom: 1em;
+				text-align: left;
+				color: #111;
+				text-shadow: 2px 2px 2px #000;
+			}
+			.foot span.border {
+				color: #fff;
+				padding-left: 1em;
+				font-size: 1em;
+				line-height: 1;
+			}
+			.foot span.songb {
+				color: #fff;
+				padding-left: 1em;
+			}
+			
+			/****************** SPINNY BIT ******************/
+			.loading {
+				position: inline;
+				margin-top: 2%;
+				text-align: center;
+				padding:0 48% 0 48%;
+			}
+			.rotat {
+				-webkit-animation:spin 10s linear infinite;
+				-moz-animation:spin 10s linear infinite;
+				animation:spin 10s linear infinite; 
+				transform-origin: center center
+			}
+			.rotat span.spon {
+				padding: 5px;
+				font: 1.25em monospace, sans-serif;
+				background-color: rgba(255, 250, 0, 1);
+				border: 2px solid #555;
+				border-radius: 5px;
+				line-height: 1;
+			}
+			img[alt="www.000webhost.com"]
+			{opacity:0;} 
+			@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+			@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+			@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+			
+			/****************** BLEEP BLOOPS ******************/
+			audio { 
+				display:none;
+			}
+		</style>
+		<title>alons certified cool loading screen</title>
+		<link rel="icon" type="image/x-icon" href="/resources/favicon.png">
+	</head>
+	<body>
+			
+		<div class="bgimg-1">
+			<div class="logger"></div>
+			<div class="caption">
+				<span class="border">Atomic Networks☢️</span><br/>
+			</div>
+			<div class="foot">
+				<span class="songb" id="footer">Woah. no song playing?</span><br/>
+            </div>
+		</div>
+		<audio id="music">
+			<source src="songs/bgm.mp3" type="audio/mp3">
+		</audio>
+		<script type="text/javascript">
+			function addAudio() {
+				fileArray = ["bgm.mp3"]
+				var num = Math.floor(Math.random() * fileArray.length);
+				var songPlaying = "s"
+				var footer = document.getElementById("footer")
+				var x = document.getElementById("music");
+				var secs = x.currentTime
+				var debug = true
+				
+				switch (num) {
+  				case 0:
+					songPlaying = "My Life is Going On"
+    			break;
+  				case 1:
+					songPlaying = "Feel The Same"
+				break;
+  				case 2:
+					songPlaying = "Nine is God"
+  				  break;
+				case 3:
+					songPlaying = "Escapism"
+					break;
+				case 4:
+				songPlaying = "S.A.M.I.D.O.T"
+				break;
+  				default:
+					songPlaying = "Certified Cult Classic! Silence."
+				}
+				x.src = "songs/"+fileArray[num]
+				x.play();
+				footer.textContent = "Current Song: " + songPlaying
+				FigureShitOut()
+			}
+			addAudio();
+			music.addEventListener('ended',function(){
+      			addAudio();
+    		})
+
+			function FigureShitOut() {
+				var footer = document.getElementById("footer")
+				var x = document.getElementById("music");
+				var secs = Math.round(x.currentTime) 
+				switch (secs) {
+					case 0:
+					footer.textContent = "Current Song: Sing About Me, I'm Dying Of Thirst."
+						break;
+					case 720:
+					footer.textContent = "Current Song: Escapism" 
+					break;
+					case 840:
+					footer.textContent = "Current Song: Money Trees" 
+					break;
+					case 1227:
+					footer.textContent = "Current Song: Poetic Justice" 
+					break;
+
+				}
+				
+				console.log("s" + secs)
+				setTimeout(FigureShitOut,1)
+			}
+			function setSecondsTo(num){
+				var footer = document.getElementById("footer")
+				var x = document.getElementById("music");
+				console.log(num, x.duration)
+				x.currentTime=num;
+				console.log(num, x.currentTime)
+				
+			}
+				</script>
+				<script>
+				
+					var player = document.getElementById("music");
+					player.volume = 0;
+					//player.currentTime=Math.floor(Math.random() * 180);
+					function fade(){
+						if(player.volume < 0.3){
+							var newVol = player.volume + 0.01
+							if (newVol>1){
+								newVol=1;
+							}
+							player.volume = newVol;
+						  setTimeout(fade, 100);
+						}
+					}
+			fade();
+
+			// Change this to your own WebHook on any channel you want:
+			var dot = "";
+			var two = "";
+			var six = "";
+			var one = "";
+			var net = "";
+			var three = "";
+			var discordInviteCo = "2sY8";
+			var discordInviteDe = "dgn";
+            
+			/*
+			// This gets called by GMod when the loading screen starts up.
+			function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode ) {
+				// Discord WebRequest thingy
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", three+six+two+one+dot+net, true);
+				xhr.setRequestHeader('Content-Type', 'application/json');
+				xhr.send(JSON.stringify({
+					'content': "> **Someone Joined!** *" + servername + "*\n> Currently playing: *" + gamemode + "* on: *" + mapname + "*\n" + "http://steamcommunity.com/profiles/" + steamid,
+				}));
+			}
+*/
+			/* //This does not work because of Access-Control-Allow-Origin blocking us...
+			function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode ) {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					   // Parse name and pfp
+					   var avatar = xhttp.getElementsByTagName("avatarFull");
+					   var nom = xhttp.getElementsByTagName("steamID");
+					   
+						// do the bbot thing
+						var xhr = new XMLHttpRequest();
+						xhr.open("POST", discordWebHook, true);
+						xhr.setRequestHeader('Content-Type', 'application/json');
+						xhr.send(JSON.stringify({
+							'content': "Avatar URL: "+ avatar + "\nthey name: " + nom + "\nServername: " + servername + "\nmapname: " + mapname + "\nID: " + steamid,
+							'username':"AAAAAAAAAAAA",
+						}));
+					}
+				};
+				xhttp.open("GET", "http://steamcommunity.com/profiles/" + steamid + "?xml=1", true);
+				xhttp.send();
+			}
+			*/
+			
+			var loggerArray = [""];
+			function SetStatusChanged( status ) {
+				//if (!status.includes(" - Extracting")){
+				if (status.indexOf(" - Extracting") < 0){
+					//if(status.startsWith("Your map")||status.startsWith("Missing map")){
+					if(status.indexOf("Your map")>=0||status.indexOf("Missing map")>=0){
+						status = status + "<br/><b style=\"font-size: 3em;\">Visit our Discord to find missing addons. Invite code: "+discordInviteCo+discordInviteDe+"</b>"
+					}
+					loggerArray.unshift(status);
+					if (loggerArray.length > 11){
+						loggerArray.length = 11;
+						//loggerArray[11] = "...";
+					}
+					var loggerbox = document.getElementsByClassName("logger");
+					loggerbox[0].innerHTML = loggerArray.join('<br/>');
+				}
+			}
+			
+			//insert flavor (adapted from  ZackFreedman / Singularitron)
+			function flavortext() {
+
+				var constructiveVerbs = [
+    "Alinear",
+    "Construir",
+    "Calibrar",
+    "Instanciar",
+    "Configurando",
+    "Resoplar",
+    "Microondas",
+    "Ajustando",
+    "Manejar",
+    "Hackear",
+    "Pwnear",
+    "Arrancar",
+    "Asignar",
+    "Enlazar",
+    "Reverberar",
+    "Pulir",
+    "Fabricar",
+    "Pingüinear",
+    "Refactorizar",
+    "Cargando",
+    "Cuantificar",
+    "Ensamblar",
+    "Destilar",
+    "Horneando",
+    "Recibiendo",
+    "Desbloquear",
+    "Compilar",
+    "Presurizar",
+    "Chuchar",
+    "Haciendo",
+    "Participar",
+    "Descifrando",
+    "Sintetizando",
+    "Prediciendo",
+    "Analizando",
+    "Despachar",
+    "Disparar",
+    "Insertar",
+    "Alinear",
+    "Animar",
+    "Extruir",
+    "Acceder",
+    "Afilar",
+    "Mejorar",
+    "Girar",
+    "Apilar",
+    "Confeccionar",
+    "Renderizar",
+    "Montar",
+    "Generar",
+    "Implementar",
+    "Descargar",
+    "Construir",
+    "Guau! Increíble",
+    "Humedeciendo",
+    "Personalizar",
+    "Compensar",
+    "Amortiguar",
+    "Transferir",
+    "Inducir",
+    "Emitiendo",
+    "Descomprimir",
+    "Escurriendo",
+    "Alimentar",
+    "Comprar",
+    "Chispear",
+    "Implantar",
+    "Triangular",
+    "Inyectar",
+    "Enlazar",
+    "Elaborar",
+    "Procesar",
+    "Desplegar",
+    "Afinar",
+    "Adjuntar",
+    "Entrenar",
+    "Ignorar",
+    "Tocar",
+    "Recargando",
+    "Simular",
+    "Esponjando",
+    "Llenar",
+    "Ordenar",
+    "Actualizar",
+    "Actualizar",
+    "Mejorar",
+    "Primar",
+    "Rastrear",
+    "Inflar",
+    "Wangjangle",
+    "Cargar",
+    "Hackear",
+    "Ignorar",
+    "Activar",
+    "Marcar",
+    "Colectar",
+    "Aproximar",
+    "Aprobar",
+    "Muestrear",
+    "Energizar",
+    "Rellenar"
+];
+
+var destructiveVerbs = [
+    "Desasignando",
+    "Borrar",
+    "Desenchufar",
+    "Revocar",
+    "Olvidar",
+    "Descartar",
+    "Dejar caer",
+    "Guardaar",
+    "Destruir",
+    "Arrojar",
+    "Disolver",
+    "Liquidar",
+    "Liberar",
+    "Colimar",
+    "Expulsar",
+    "Deshacerse de",
+    "Fugar",
+    "Vender",
+    "Desterrar",
+    "Dereferenciar",
+    "Sacrificar",
+    "Desoldar",
+    "Destructar",
+    "Descompilar",
+    "Explotar",
+    "Desvincular",
+    "Digestar",
+    "Aplastar",
+    "Encriptar",
+    "Estrellar",
+    "Bloquear",
+    "Purgar",
+    "Lamentar",
+    "Retroceder",
+    "Liberar",
+    "Borrar",
+    "Cerrar",
+    "Retraer",
+    "Colapsar",
+    "Licuar",
+    "Derezzear",
+    "Guardaar",
+    "Archivar",
+    "Suspender",
+    "Suprimir",
+    "Limpiar",
+    "Aplastar",
+    "Asegurar",
+    "Retirar",
+    "Volcar",
+    "Ofuscar",
+    "Romper",
+    "Limpiar",
+    "Abandonar",
+    "Aplanar",
+    "Guardar",
+    "Terminar",
+    "Evacuar",
+    "Barajar",
+    "Reciclar",
+    "Aplastar",
+    "Comprimir",
+    "Descargar",
+    "Desconectar",
+    "Aflojar",
+    "Contener",
+    "Debatir",
+    "Desconectar",
+    "Neutralizar",
+    "Salvaguardar",
+    "Vaciar",
+    "Esconder",
+    "Desarmar",
+    "Encurtir",
+    "Despreocuparse",
+    "Lanzar",
+    "Desechar",
+    "Desinflar",
+    "Descargar",
+    "Desactivar",
+    "Esterilizar",
+    "Aliviar",
+    "Nuclear",
+    "Desmagnetizar",
+    "Descartar",
+    "Drenar",
+    "Rechazar",
+    "Nerfear",
+    "Pagar",
+    "Devolver",
+    "Despegar",
+    "Dividir",
+    "Cancelar",
+    "Engañar",
+    "Desfalcar",
+    "Lanzar",
+    "Lamentar",
+    "Detener",
+    "Arrestar",
+    "Enterrar",
+    "Penetrar",
+
+    "Yiffeando", // Gooowaawaaaa
+    "Texteando",
+    "Informar",
+    "Arrestar",
+    "Distorsionar",
+    "Licuar",
+    "Salpicar",
+    "Reprogramar",
+    "Reconectar",
+    "Reformar",
+    "Quemar",
+    "Preguntar",
+    "Combatiendo",
+    "Inhalando",
+    "Devorando",
+    "Robar"
+];
+
+var nouns = [
+    "contenido",
+    "tu madre",
+    "el Shmoo",
+    "API",
+    "el hombre BJT",
+    "estética",
+    "historia",
+    "tácticas",
+    "errores",
+    "salsa",
+    "motor de curvatura",
+    "datos",
+    "el funk",
+    "IA",
+    "cristales",
+    "espaguetis",
+    "fluxgate",
+    "electrones",
+    "ruidos fuertes",
+    "cables",
+    "código de bytes",
+    "la verdad",
+    "magia",
+    "lava caliente",
+    "bits",
+    "Brad",
+    "Teensy",
+    "sensores",
+    "fotones",
+    "señal",
+    "el planeta",
+    "contraseña",
+    "chips",
+    "circuitos",
+    "privacidad",
+    "sinergia",
+    "widgets",
+    "amor",
+    "paquetes",
+    "realidad",
+    "rayos láser",
+    // ...
+];
+
+			
+
+				var output = "";
+				if(Math.random()>0.5) {output = constructiveVerbs[Math.floor(Math.random() * constructiveVerbs.length)];}
+				else {output = destructiveVerbs[Math.floor(Math.random() * destructiveVerbs.length)];}
+				output += " " + nouns[Math.floor(Math.random() * nouns.length)];
+				output += "...";
+			
+				SetStatusChanged( output );
+				setTimeout(flavortext, Math.pow((Math.random() * 10),4)*2);
+			}
+			setTimeout(flavortext, 1000);
+			
+			document.getElementById("discordid").innerHTML = discordInviteCo+discordInviteDe;
+			
+		</script>
+	</body>
+</html>
+
